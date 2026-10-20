@@ -6,8 +6,8 @@ interface Props {
   onOpen: () => void;   // se llama al terminar el video — revela invitación
 }
 
-const POSTER = "https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/img/xv-julia-sofia/sobre-poster.jpg";
-const VIDEO = "https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/video/xv-julia-sofia/sobre.mp4";
+const POSTER = "https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/img/boda-edith-lopez-daniel-villegas/sobre-poster.jpg";
+const VIDEO = "https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/video/boda-edith-lopez-daniel-villegas/sobre.mp4";
 
 export default function SplashScreen({ onStart, onOpen }: Props) {
   const screenRef = useRef<HTMLDivElement>(null);
@@ -72,7 +72,7 @@ export default function SplashScreen({ onStart, onOpen }: Props) {
         zIndex: 10000,
         overflow: "hidden",
         cursor: phase === "idle" ? "pointer" : "default",
-        background: "#011f02",
+        background: "#f3efe6",
         opacity: 0,
         transition: "opacity 0.6s ease",
       }}

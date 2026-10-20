@@ -146,7 +146,7 @@ export default function RSVPSection() {
 
   return (
     <section style={{ padding: "64px 24px" }}>
-      <div style={{
+      <div className="no-halo" style={{
         position: "relative",
         maxWidth: 520,
         margin: "0 auto",

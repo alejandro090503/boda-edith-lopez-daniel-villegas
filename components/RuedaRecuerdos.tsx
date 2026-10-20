@@ -4,7 +4,7 @@ import { GALERIA } from "./photos";
 import SectionTitle from "./SectionTitle";
 
 // Rueda 3D arrastrable con inercia — portada de la plantilla 58 (boda-eliud-y-sulem)
-const RADIUS = 380;
+const RADIUS = 290;
 
 export default function RuedaRecuerdos() {
   const ringRef = useRef<HTMLDivElement>(null);
@@ -19,8 +19,8 @@ export default function RuedaRecuerdos() {
 
     const loop = () => {
       if (!drag) {
-        if (Math.abs(vel) > 0.05) { vel *= 0.94; set(rot + vel); }
-        else if (spin && visible && !reduced) set(rot + 0.18);
+        if (Math.abs(vel) > 0.05) { vel *= 0.95; set(rot + vel); }
+        else if (spin && visible && !reduced) set(rot + 0.07);
       }
       raf = requestAnimationFrame(loop);
     };
@@ -32,7 +32,7 @@ export default function RuedaRecuerdos() {
     const t = setTimeout(() => { visible = true; }, 1500);
 
     const down = (x: number) => { spin = false; drag = true; vel = 0; startX = x; startRot = rot; lastX = x; ring.classList.add("dragging"); };
-    const move = (x: number) => { if (!drag) return; vel = (x - lastX) * 0.5; lastX = x; set(startRot + (x - startX) * 0.45); };
+    const move = (x: number) => { if (!drag) return; vel = (x - lastX) * 0.3; lastX = x; set(startRot + (x - startX) * 0.3); };
     const up = () => { if (!drag) return; drag = false; ring.classList.remove("dragging"); };
 
     const md = (e: MouseEvent) => down(e.clientX);

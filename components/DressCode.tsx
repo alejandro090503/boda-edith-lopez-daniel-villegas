@@ -1,6 +1,6 @@
 "use client";
 
-const COUPLE_IMG = "https://bsjoelxktbvlavfoozhk.supabase.co/storage/v1/object/public/fotos-clientes/img/xv-julia-sofia/dresscode-pareja.png";
+const COUPLE_IMG = "/dresscode.webp";
 
 export default function DressCode() {
   return (
@@ -37,7 +37,7 @@ export default function DressCode() {
           alt="Pareja en código de vestimenta cóctel formal"
           loading="lazy"
           style={{
-            width: 210,
+            width: "min(300px, 78vw)",
             height: "auto",
             filter: "drop-shadow(0 12px 26px rgba(0,0,0,0.45))",
           }}
@@ -66,51 +66,6 @@ export default function DressCode() {
         border: "1px solid rgba(241,217,138,0.30)",
         borderRadius: 22,
       }}>
-        <p style={{
-          fontFamily: "var(--font-cormorant), serif",
-          fontStyle: "italic",
-          fontWeight: 600,
-          fontSize: 17,
-          color: "var(--text)",
-          letterSpacing: 1,
-          marginBottom: 20,
-        }}>
-          Color sugerido
-        </p>
-
-        {/* Esfera multicolor — el que deseen */}
-        <div style={{ display: "flex", justifyContent: "center", marginBottom: 8 }}>
-          <div style={{
-            position: "relative",
-            width: 76, height: 76, borderRadius: "50%",
-            background: "conic-gradient(from 210deg, #d8a8b5, #c9a674, #b8a48e, #8aa593, #6f8db5, #a89bbf, #c592a8, #d8a8b5)",
-            boxShadow: "0 10px 26px rgba(0,0,0,0.4), inset 0 -6px 14px rgba(0,0,0,0.3), inset 0 4px 10px rgba(255,255,255,0.55)",
-            border: "1px solid rgba(241,217,138,0.45)",
-            overflow: "hidden",
-          }}>
-            {/* highlight para efecto esfera 3D */}
-            <div style={{
-              position: "absolute",
-              top: "8%", left: "18%",
-              width: "38%", height: "32%",
-              borderRadius: "50%",
-              background: "radial-gradient(circle, rgba(255,255,255,0.55) 0%, transparent 70%)",
-              filter: "blur(2px)",
-            }} />
-          </div>
-        </div>
-        <p style={{
-          fontFamily: "var(--font-cormorant), serif",
-          fontStyle: "italic",
-          fontWeight: 600,
-          fontSize: 15,
-          letterSpacing: 2,
-          color: "var(--text-soft)",
-          marginBottom: 24,
-        }}>
-          El color que tú prefieras
-        </p>
-
         {/* Colores a evitar */}
         <div style={{
           position: "relative",

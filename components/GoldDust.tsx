@@ -77,8 +77,10 @@ export default function GoldDust() {
             width: p.s,
             height: p.s,
             borderRadius: "50%",
-            background: "radial-gradient(circle, #f6e7b8 0%, #F1D98A 45%, rgba(241,217,138,0) 75%)",
-            boxShadow: "0 0 6px 1px rgba(241,217,138,0.45)",
+            background: i % 3 === 0
+              ? "radial-gradient(circle, #f3e6f7 0%, #b89ac2 45%, rgba(184,154,194,0) 75%)"
+              : "radial-gradient(circle, #f6e7b8 0%, #F1D98A 45%, rgba(241,217,138,0) 75%)",
+            boxShadow: i % 3 === 0 ? "0 0 6px 1px rgba(184,154,194,0.5)" : "0 0 6px 1px rgba(241,217,138,0.45)",
             animation: `dustTwinkle ${p.dur}s ${p.d}s ease-in-out infinite`,
           }}
         />

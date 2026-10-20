@@ -9,7 +9,9 @@ import CalendarioBtn from "./CalendarioBtn";
 import DressCode from "./DressCode";
 import Familia from "./Familia";
 import MesaRegalos from "./MesaRegalos";
-import PhotoFrame from "./PhotoFrame";
+import Fondo from "./Fondo";
+import FotoFlotante from "./FotoFlotante";
+import FotoArco from "./FotoArco";
 import RSVPSection from "./RSVPSection";
 import RuedaRecuerdos from "./RuedaRecuerdos";
 import Itinerario from "./Itinerario";
@@ -53,31 +55,33 @@ export default function InvitacionClient() {
           position: "relative",
           overflowX: "clip",
           zIndex: 1,
-          background: "linear-gradient(180deg, #011f02 0%, #023303 50%, #011f02 100%)",
+          background: "#011f02",
         }}
       >
         <Hero />
 
         {/* Carrusel de momentos — después del hero */}
-        <ScrollReveal>
-          <Mensaje />
-        </ScrollReveal>
-
-        <ScrollReveal>
-          <RuedaRecuerdos />
-        </ScrollReveal>
+        <Fondo img="ink-top">
+          <ScrollReveal>
+            <Mensaje />
+          </ScrollReveal>
+          <ScrollReveal>
+            <RuedaRecuerdos />
+          </ScrollReveal>
+        </Fondo>
 
         <ScrollReveal>
           <Ornament />
         </ScrollReveal>
 
-        <ScrollReveal>
-          <Familia />
-        </ScrollReveal>
+        <Fondo img="ink-corner" opacity={0.75}>
+          <ScrollReveal>
+            <Familia />
+          </ScrollReveal>
+        </Fondo>
 
-        {/* Marco rasgado #2 — foto de los novios */}
         <ScrollReveal>
-          <PhotoFrame variant="framed2" seed={23} />
+          <FotoFlotante />
         </ScrollReveal>
 
         <ScrollReveal>
@@ -100,17 +104,21 @@ export default function InvitacionClient() {
           </div>
         </ScrollReveal>
 
-        <ScrollReveal>
-          <CountdownTimer />
-        </ScrollReveal>
+        <Fondo img="ink-hero" opacity={0.70}>
+          <ScrollReveal>
+            <CountdownTimer />
+          </ScrollReveal>
+        </Fondo>
 
         <ScrollReveal>
           <Ornament />
         </ScrollReveal>
 
-        <ScrollReveal>
-          <Ubicacion />
-        </ScrollReveal>
+        <Fondo img="ink-corner" opacity={0.75}>
+          <ScrollReveal>
+            <Ubicacion />
+          </ScrollReveal>
+        </Fondo>
 
         <ScrollReveal>
           <CalendarioBtn />
@@ -120,41 +128,52 @@ export default function InvitacionClient() {
           <Ornament />
         </ScrollReveal>
 
-        <Itinerario />
+        <Fondo img="ink-footer" opacity={0.67}>
+          <Itinerario />
+        </Fondo>
 
         <ScrollReveal>
           <Ornament />
         </ScrollReveal>
 
-        <ScrollReveal>
-          <DressCode />
-        </ScrollReveal>
+        <Fondo img="ink-oval" opacity={0.85}>
+          <ScrollReveal>
+            <DressCode />
+          </ScrollReveal>
+        </Fondo>
 
         <ScrollReveal>
           <Ornament />
         </ScrollReveal>
 
-        <ScrollReveal>
-          <MesaRegalos />
-        </ScrollReveal>
+        <Fondo img="ink-hero" opacity={0.70} flip>
+          <ScrollReveal>
+            <MesaRegalos />
+          </ScrollReveal>
+        </Fondo>
+
+        <Fondo img="ink-oval" opacity={0.80}>
+          <ScrollReveal>
+            <Album />
+          </ScrollReveal>
+        </Fondo>
 
         <ScrollReveal>
-          <Album />
+          <FotoArco />
         </ScrollReveal>
 
-        {/* Foto 2 — marco rasgado */}
-        <ScrollReveal>
-          <PhotoFrame />
-        </ScrollReveal>
-
-        <ScrollReveal>
-          <RSVPSection />
-        </ScrollReveal>
+        <Fondo img="ink-footer" opacity={0.70}>
+          <ScrollReveal>
+            <RSVPSection />
+          </ScrollReveal>
+        </Fondo>
 
         {/* Foto 3 — cierre (full-bleed) */}
         <ClosingPhoto />
 
-        <Footer />
+        <Fondo img="ink-top" opacity={0.75} flip position="center top">
+          <Footer />
+        </Fondo>
       </div>
 
       {/* Polvo dorado — aparece tras el header */}
