@@ -1,0 +1,166 @@
+"use client";
+import { useState, useRef } from "react";
+import SplashScreen from "./SplashScreen";
+import Hero from "./Hero";
+import Ornament from "./Ornament";
+import CountdownTimer from "./CountdownTimer";
+import Ubicacion from "./Ubicacion";
+import CalendarioBtn from "./CalendarioBtn";
+import DressCode from "./DressCode";
+import Familia from "./Familia";
+import MesaRegalos from "./MesaRegalos";
+import PhotoFrame from "./PhotoFrame";
+import RSVPSection from "./RSVPSection";
+import RuedaRecuerdos from "./RuedaRecuerdos";
+import Itinerario from "./Itinerario";
+import Mensaje from "./Mensaje";
+import Album from "./Album";
+import ClosingPhoto from "./ClosingPhoto";
+import Footer from "./Footer";
+import MusicFab, { type MusicFabHandle } from "./MusicFab";
+import GoldDust from "./GoldDust";
+import ScrollReveal from "./ScrollReveal";
+
+export default function InvitacionClient() {
+  const [contentVisible, setContentVisible] = useState(false);
+  const [splashMounted, setSplashMounted] = useState(true);
+  const musicRef = useRef<MusicFabHandle>(null);
+
+  // Al tocar el sobre (gesto del usuario) → arranca la música
+  const handleStart = () => {
+    musicRef.current?.play();
+  };
+
+  // Al terminar el video del sobre → revela la invitación
+  const handleReveal = () => {
+    setContentVisible(true);
+    setTimeout(() => {
+      setSplashMounted(false);
+      window.scrollTo({ top: 0, behavior: "instant" });
+    }, 820);
+  };
+
+  return (
+    <>
+      {splashMounted && <SplashScreen onStart={handleStart} onOpen={handleReveal} />}
+
+      <div
+        style={{
+          opacity: contentVisible ? 1 : 0,
+          transition: "opacity 0.85s ease",
+          maxWidth: 430,
+          margin: "0 auto",
+          position: "relative",
+          overflowX: "clip",
+          zIndex: 1,
+          background: "linear-gradient(180deg, #011f02 0%, #023303 50%, #011f02 100%)",
+        }}
+      >
+        <Hero />
+
+        {/* Carrusel de momentos — después del hero */}
+        <ScrollReveal>
+          <Mensaje />
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <RuedaRecuerdos />
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <Ornament />
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <Familia />
+        </ScrollReveal>
+
+        {/* Marco rasgado #2 — foto de los novios */}
+        <ScrollReveal>
+          <PhotoFrame variant="framed2" seed={23} />
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <Ornament />
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <div style={{ padding: "32px 26px 10px", textAlign: "center" }}>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 18 }}>
+              <div style={{ flex: 1, maxWidth: 60, height: 1, background: "linear-gradient(to right,transparent,#D4AF37)", opacity: 0.55 }} />
+              <div style={{
+                fontFamily: "var(--font-cormorant), serif",
+                fontWeight: 700, fontSize: 24, letterSpacing: 8,
+                textTransform: "uppercase", color: "#F1D98A", textIndent: 8,
+              }}>
+                20 · Diciembre · 2026
+              </div>
+              <div style={{ flex: 1, maxWidth: 60, height: 1, background: "linear-gradient(to left,transparent,#D4AF37)", opacity: 0.55 }} />
+            </div>
+          </div>
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <CountdownTimer />
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <Ornament />
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <Ubicacion />
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <CalendarioBtn />
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <Ornament />
+        </ScrollReveal>
+
+        <Itinerario />
+
+        <ScrollReveal>
+          <Ornament />
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <DressCode />
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <Ornament />
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <MesaRegalos />
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <Album />
+        </ScrollReveal>
+
+        {/* Foto 2 — marco rasgado */}
+        <ScrollReveal>
+          <PhotoFrame />
+        </ScrollReveal>
+
+        <ScrollReveal>
+          <RSVPSection />
+        </ScrollReveal>
+
+        {/* Foto 3 — cierre (full-bleed) */}
+        <ClosingPhoto />
+
+        <Footer />
+      </div>
+
+      {/* Polvo dorado — aparece tras el header */}
+      {contentVisible && <GoldDust />}
+
+      <MusicFab ref={musicRef} />
+    </>
+  );
+}

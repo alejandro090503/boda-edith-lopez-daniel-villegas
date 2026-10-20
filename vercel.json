@@ -1,0 +1,5 @@
+{
+  "redirects": [
+    { "source": "/album", "destination": "https://panel-invitados.vercel.app/subir/boda-edith-lopez-daniel-villegas", "permanent": false }
+  ]
+}
