@@ -1,6 +1,5 @@
 "use client";
 
-const COUPLE_IMG = "/dresscode.webp";
 
 export default function DressCode() {
   return (
@@ -32,16 +31,10 @@ export default function DressCode() {
       </h2>
 
       <div style={{ display: "flex", justifyContent: "center", marginBottom: 16 }}>
-        <img
-          src={COUPLE_IMG}
-          alt="Pareja en código de vestimenta cóctel formal"
-          loading="lazy"
-          style={{
-            width: "min(300px, 78vw)",
-            height: "auto",
-            filter: "drop-shadow(0 12px 26px rgba(0,0,0,0.45))",
-          }}
-        />
+        <div className="dc-frames">
+          <figure className="dc-frame"><img src="/dc-el.jpg" alt="Él: traje oscuro y corbata" /><figcaption>Él</figcaption></figure>
+          <figure className="dc-frame"><img src="/dc-ella.jpg" alt="Ella: vestido largo de noche" /><figcaption>Ella</figcaption></figure>
+        </div>
       </div>
 
       <p style={{

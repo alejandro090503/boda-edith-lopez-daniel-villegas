@@ -147,13 +147,8 @@ function CajaRegalo() {
           </button>
           <div className="gift-reveal-eyebrow">Con cariño</div>
           <div className="gr-slide">
-            <div className="gr-logo">
-              <svg viewBox="0 0 24 24" fill="none" stroke="#8A6A14" strokeWidth="1.3" strokeLinecap="round" aria-hidden="true">
-                <rect x="3" y="6" width="18" height="13" rx="1.5" /><path d="M3 10h18" /><path d="M7 15h4" />
-              </svg>
-            </div>
+            <div className="gr-logo"><img src="/nu-logo.png" alt="Nu" width={500} height={276} /></div>
             <div className="gr-title">Transferencia</div>
-            <div className="gr-bankname">Nu</div>
             <div className="gr-accounts">
               <div className="gr-acc">
                 <div className="gr-acc-info">
