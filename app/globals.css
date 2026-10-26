@@ -329,3 +329,18 @@ body {
 .cierre-mono span{font-size:.6em;margin:0 .08em}
 .cierre-nombres{margin-top:6px;font-family:var(--font-cormorant),serif;font-weight:700;font-size:16px;letter-spacing:6px;text-transform:uppercase}
 @media (prefers-reduced-motion:reduce){.cierre-foto{animation:none}}
+
+/* ===== Carrusel del modal de regalos (paola-e-ivan) ===== */
+.gr-viewport{overflow:hidden;position:relative}
+.gr-track{display:flex;align-items:stretch;transition:transform .55s cubic-bezier(.2,.7,.2,1);touch-action:pan-y}
+.gr-track .gr-slide{flex:0 0 100%;justify-content:center}
+.gr-desc{font-family:var(--font-lato),sans-serif;font-size:16px;font-weight:500;line-height:1.6;color:#2b3a2e;margin-bottom:20px}
+.gr-desc b{font-weight:700;color:#023303}
+.gr-btn{display:inline-block;padding:14px 30px;border:1px solid #023303;font-family:var(--font-lato),sans-serif;font-size:12px;font-weight:700;letter-spacing:.3em;text-transform:uppercase;color:#023303;text-decoration:none;border-radius:2px;transition:background .35s,color .35s}
+.gr-btn:hover{background:#023303;color:#F1D98A}
+.gr-nav{display:flex;align-items:center;justify-content:center;gap:16px;margin-top:22px}
+.gr-arrow{width:40px;height:40px;border-radius:50%;border:1px solid rgba(212,175,55,.7);background:transparent;color:#6b520f;display:flex;align-items:center;justify-content:center;cursor:pointer;padding:0}
+.gr-arrow svg{width:15px;height:15px}
+.gr-dots{display:flex;gap:10px}
+.gr-dot{width:9px;height:9px;border-radius:50%;border:1px solid #9C7A1C;background:transparent;padding:0;cursor:pointer;transition:background .3s,transform .3s}
+.gr-dot.is-active{background:#64456e;border-color:#64456e;transform:scale(1.3)}

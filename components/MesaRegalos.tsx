@@ -94,6 +94,9 @@ function CajaRegalo() {
   const [open, setOpen] = useState(false);
   const [copied, setCopied] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const [slide, setSlide] = useState(0);
+  const tx = useRef(0);
+  const go = (i: number) => setSlide((i + 3) % 3);
   useEffect(() => setMounted(true), []);
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -145,7 +148,23 @@ function CajaRegalo() {
           <button className="gift-close" type="button" aria-label="Cerrar" onClick={() => setOpen(false)}>
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M18 6 6 18M6 6l12 12" /></svg>
           </button>
-          <div className="gift-reveal-eyebrow">Con cariño</div>
+          <div className="gift-reveal-eyebrow">Elige una opción</div>
+          <div className="gr-viewport">
+          <div className="gr-track" style={{ transform: `translateX(-${slide * 100}%)` }}
+            onTouchStart={(e) => { tx.current = e.touches[0].clientX; }}
+            onTouchEnd={(e) => { const d = e.changedTouches[0].clientX - tx.current; if (Math.abs(d) > 40) go(slide + (d < 0 ? 1 : -1)); }}>
+          <div className="gr-slide">
+            <div className="gr-logo"><img src="/liverpool-logo.png" alt="Liverpool" width={508} height={121} /></div>
+            <div className="gr-title">Mesa de regalos</div>
+            <div className="gr-desc">Número de evento <b>60065103</b><br />Envío directo a los novios</div>
+            <a className="gr-btn" href="https://mesaderegalos.liverpool.com.mx/milistaderegalos/60065103" target="_blank" rel="noopener noreferrer">Ver mesa</a>
+          </div>
+          <div className="gr-slide">
+            <div className="gr-logo"><img src="/amazon-logo.png" alt="Amazon" width={500} height={151} /></div>
+            <div className="gr-title">Lista de regalos</div>
+            <div className="gr-desc">Lista de bodas en línea<br />Envío directo a los novios</div>
+            <a className="gr-btn" href="https://www.amazon.com.mx/wedding/guest-view/2QJ6JTWS67HPQ" target="_blank" rel="noopener noreferrer">Ver lista</a>
+          </div>
           <div className="gr-slide">
             <div className="gr-logo"><img src="/nu-logo.png" alt="Nu" width={500} height={276} /></div>
             <div className="gr-title">Transferencia</div>
@@ -163,6 +182,13 @@ function CajaRegalo() {
               </div>
             </div>
             <p className="gr-hint">{copied ? "CLABE copiada" : "CLABE interbancaria"}</p>
+          </div>
+          </div>
+          </div>
+          <div className="gr-nav">
+            <button className="gr-arrow" type="button" aria-label="Opción anterior" onClick={() => go(slide - 1)}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg></button>
+            <div className="gr-dots">{[0, 1, 2].map((i) => <button key={i} type="button" aria-label={`Opción ${i + 1}`} className={`gr-dot${i === slide ? " is-active" : ""}`} onClick={() => go(i)} />)}</div>
+            <button className="gr-arrow" type="button" aria-label="Siguiente opción" onClick={() => go(slide + 1)}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg></button>
           </div>
         </div>
       </div>, document.body)}
