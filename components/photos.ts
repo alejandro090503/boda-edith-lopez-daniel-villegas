@@ -8,4 +8,4 @@ export const PHOTOS = {
   closing: `${BASE}/g12.jpg`,
 };
 
-export const GALERIA = Array.from({ length: 12 }, (_, i) => `${BASE}/g${String(i + 1).padStart(2, "0")}.jpg`);
+export const GALERIA = Array.from({ length: 15 }, (_, i) => `${BASE}/g${String(i + 1).padStart(2, "0")}.jpg`);

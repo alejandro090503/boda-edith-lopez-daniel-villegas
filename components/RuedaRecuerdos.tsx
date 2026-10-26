@@ -4,7 +4,7 @@ import { GALERIA } from "./photos";
 import SectionTitle from "./SectionTitle";
 
 // Rueda 3D arrastrable con inercia — portada de la plantilla 58 (boda-eliud-y-sulem)
-const RADIUS = 290;
+const RADIUS = 350;
 
 export default function RuedaRecuerdos() {
   const ringRef = useRef<HTMLDivElement>(null);
