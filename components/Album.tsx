@@ -35,10 +35,10 @@ export default function Album() {
       </div>
       {bloqueado && (
         <p style={{
-          fontFamily: "var(--font-lato), sans-serif", fontWeight: 500, fontSize: 16, color: "var(--mauve-light)",
+          fontFamily: "var(--font-cormorant), serif", fontStyle: "italic", fontWeight: 600, fontSize: 18, color: "var(--mauve-light)",
           lineHeight: 1.55, maxWidth: 330, margin: "22px auto 0",
         }}>
-          El álbum se habilita el día del evento. Regresa aquí y sube todas tus fotos de la celebración.
+          El álbum de fotos se habilita el día del evento. Regresa aquí y sube todas tus fotos de la noche ✨
         </p>
       )}
     </section>
