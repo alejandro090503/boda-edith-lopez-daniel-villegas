@@ -3,7 +3,6 @@ import { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import SectionTitle from "./SectionTitle";
 
-const CLABE = "638180000182616866";
 
 /* ── Lluvia de sobres (boda-jeffersson-y-vanessa): caen hasta que la sección se centra y aterriza uno ── */
 function LluviaSobres() {
@@ -92,19 +91,15 @@ function LluviaSobres() {
 /* ── Caja de regalo → modal de transferencia (boda-paola-e-ivan) ── */
 function CajaRegalo() {
   const [open, setOpen] = useState(false);
-  const [copied, setCopied] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [slide, setSlide] = useState(0);
   const tx = useRef(0);
-  const go = (i: number) => setSlide((i + 3) % 3);
+  const go = (i: number) => setSlide((i + 2) % 2);
   useEffect(() => setMounted(true), []);
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
     return () => { document.body.style.overflow = ""; };
   }, [open]);
-  const copy = () => {
-    navigator.clipboard?.writeText(CLABE).then(() => { setCopied(true); setTimeout(() => setCopied(false), 2200); }).catch(() => {});
-  };
 
   return (
     <section style={{ padding: "40px 26px 64px", textAlign: "center" }}>
@@ -165,29 +160,11 @@ function CajaRegalo() {
             <div className="gr-desc">Lista de bodas en línea<br />Envío directo a los novios</div>
             <a className="gr-btn" href="https://www.amazon.com.mx/wedding/guest-view/2QJ6JTWS67HPQ" target="_blank" rel="noopener noreferrer">Ver lista</a>
           </div>
-          <div className="gr-slide">
-            <div className="gr-logo"><img src="/nu-logo.png" alt="Nu" width={500} height={276} /></div>
-            <div className="gr-title">Transferencia</div>
-            <div className="gr-accounts">
-              <div className="gr-acc">
-                <div className="gr-acc-info">
-                  <div className="gr-acc-n">Edith Alicia López Miguel</div>
-                  <div className="gr-acc-c">638 180 000182616866</div>
-                </div>
-                <button className={`gr-acc-btn${copied ? " is-copied" : ""}`} type="button" aria-label="Copiar CLABE" onClick={copy}>
-                  {copied
-                    ? <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round"><path d="M5 12l5 5L20 7" /></svg>
-                    : <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round"><rect x="9" y="9" width="12" height="12" rx="2" /><path d="M5 15V5a2 2 0 0 1 2-2h10" /></svg>}
-                </button>
-              </div>
-            </div>
-            <p className="gr-hint">{copied ? "CLABE copiada" : "CLABE interbancaria"}</p>
-          </div>
           </div>
           </div>
           <div className="gr-nav">
             <button className="gr-arrow" type="button" aria-label="Opción anterior" onClick={() => go(slide - 1)}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m15 18-6-6 6-6" /></svg></button>
-            <div className="gr-dots">{[0, 1, 2].map((i) => <button key={i} type="button" aria-label={`Opción ${i + 1}`} className={`gr-dot${i === slide ? " is-active" : ""}`} onClick={() => go(i)} />)}</div>
+            <div className="gr-dots">{[0, 1].map((i) => <button key={i} type="button" aria-label={`Opción ${i + 1}`} className={`gr-dot${i === slide ? " is-active" : ""}`} onClick={() => go(i)} />)}</div>
             <button className="gr-arrow" type="button" aria-label="Siguiente opción" onClick={() => go(slide + 1)}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="m9 18 6-6-6-6" /></svg></button>
           </div>
         </div>
