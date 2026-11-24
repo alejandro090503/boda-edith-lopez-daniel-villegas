@@ -123,7 +123,7 @@ export default function Ubicacion() {
           type="Ceremonia Civil y Recepción"
           name="Salón Jardín México Lindo"
           address="México Lindo 226, Benito Juárez, 57000 Cd. Nezahualcóyotl, Edo. Méx."
-          time="4:00 PM"
+          time="2:30 PM"
           mapsUrl="https://maps.app.goo.gl/FbrUAdZJ6BMudNF6A"
           query="Salón Jardín México Lindo, México Lindo 226, Benito Juárez, Nezahualcóyotl"
         />

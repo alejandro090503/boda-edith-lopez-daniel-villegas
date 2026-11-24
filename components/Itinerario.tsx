@@ -4,11 +4,12 @@ import SectionTitle from "./SectionTitle";
 
 // Itinerario · camino en S dibujado con scroll + perla viajera — plantilla 116 (boda-jeffersson-y-vanessa)
 const EVENTOS = [
-  { t: "4:00 p.m.", ev: "Recepción de invitados", de: "Salón Jardín México Lindo" },
-  { t: "4:30 p.m.", ev: "Ceremonia Civil", de: "Salón Jardín México Lindo" },
-  { t: "5:00 p.m.", ev: "Banquete y Brindis" },
-  { t: "6:30 p.m.", ev: "Baile y Fiesta", de: "¡Que comience la celebración!" },
-  { t: "10:00 p.m.", ev: "Cierre y Despedida" },
+  { t: "2:30 p.m.", ev: "Recepción de invitados", de: "Salón Jardín México Lindo" },
+  { t: "3:00 p.m.", ev: "Ceremonia Civil" },
+  { t: "3:30 p.m.", ev: "Bienvenida y palabras" },
+  { t: "4:30 p.m.", ev: "Banquete y Brindis" },
+  { t: "5:30 a 9:30 p.m.", ev: "Baile y Fiesta", de: "¡Que comience la celebración!" },
+  { t: "9:30 p.m.", ev: "Cierre y Despedida" },
 ];
 
 export default function Itinerario() {

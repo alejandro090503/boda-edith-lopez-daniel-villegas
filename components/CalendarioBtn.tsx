@@ -7,7 +7,7 @@ const GCAL_URL = (() => {
     "Boda de Edith López & Daniel Villegas · https://boda-edith-lopez-daniel-villegas.vercel.app"
   );
   const location = encodeURIComponent("Salón Jardín México Lindo, México Lindo 226, Cd. Nezahualcóyotl, Edo. Méx.");
-  const dates = "20261220T220000Z/20261221T040000Z";
+  const dates = "20261220T203000Z/20261221T033000Z";
   return `${base}&text=${title}&dates=${dates}&details=${details}&location=${location}`;
 })();
 
